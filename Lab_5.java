@@ -23,7 +23,7 @@ public class Lab_5 {
 		while (repeat) {
 			
 			System.out.print("\nHow many sides should each die have? ");
-			printStoredRolls( rollDie( confirmValidInt(sc)), rollCount);
+			printStoredRolls( rollDie(confirmValidInt(sc)), rollCount);
 			
 			System.out.println("\nRoll again? (y/n)");
 			repeat = repeatYesNo(sc);
@@ -35,7 +35,7 @@ public class Lab_5 {
 	}
 
 	public static int[] rollDie(int numberOfSides) {
-		// rolls the dice a set numberOfRolls (default number: 5) and stores each roll into an array
+		// rolls two dice a set numberOfRolls (default number: 5) and stores each roll into an array
 		
 		Random dice1 = new Random();
 
@@ -44,12 +44,11 @@ public class Lab_5 {
 		int[] storedRolls = new int[numberOfRolls];
 
 		for (int i = 0; i < storedRolls.length; i++) {
-			if (i % 2 == 0) {
+			if (i % 2 == 0) {  // for even rolls, roll dice 1
 				storedRolls[i] = dice1.nextInt(numberOfSides) + 1;
-			} else {
+			} else { // for odd rolss, roll dice 2
 				storedRolls[i] = (int) (Math.random() * numberOfSides + 1);
 			}
-
 		}
 
 		return storedRolls;
